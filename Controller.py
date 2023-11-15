@@ -25,11 +25,12 @@ class PersonaController:
 
     def crear_persona_controller(self):
         """Controlador para creación de nueva persona"""
-        (persona_nombre, persona_apellido, persona_dni) = self.vista.crear_persona()
+        (persona_nombre, persona_apellido, persona_dni, persona_genero) = self.vista.crear_persona()
         persona = Persona()
         persona.nombre = persona_nombre
         persona.apellido = persona_apellido
         persona.dni = persona_dni
+         persona.genero = persona_genero
         persona.create()
         self.vista.confirmar_creacion()
         self.persona_controller()
@@ -55,6 +56,7 @@ class PersonaController:
         persona.nombre = nombre
         persona.apellido = apellido
         persona.dni =int(dni)
+         persona.genero = genero
         persona.update()
         self.vista.confirmar_editar_persona()
         self.persona_controller()
